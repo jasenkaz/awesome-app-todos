@@ -21,13 +21,14 @@ const TodoApp = {
 addTodo: function(){
   //grab the task input value, validate that task value is actually something, then build to do object with that value, then add that todo to the todos array, render, clear input
   const taskValue = this.taskInput.value;
-  const todo = {
-    task: taskValue,
   if(!taskValue){
       return;  //if nothing in the box, return makes it stop
-    },
+  }
+  const todo = {
+    task: taskValue,
     isComplete: false
   };
+
   this.todos.push(todo);
   this.render();
   this.taskInput.value = '';
