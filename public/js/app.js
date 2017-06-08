@@ -11,18 +11,21 @@ const TodoApp = {
     this.bindEvents();
     this.render();
   },
+
   cacheDOM: function(){
     this.root = document.querySelector(this.rootElement);
     this.addButton = this.root.querySelector('.add-button');
     this.taskInput = this.root.querySelector('.task-input');
     this.todoList = this.root.querySelector('.todo-list');
   },
+
   bindEvents: function(){
     this.addButton.addEventListener('click', () => console.log('add'));
   },
+
   render: function(){
     const lis = this.todos
-                .map(todo => '<li>' + todo.task + '</li>');
+                .map(todo => `<li>${todo.task}</li>`)
                 .join();
     this.todoList.innerHTML = lis;
   }
