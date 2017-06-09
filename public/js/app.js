@@ -10,15 +10,18 @@ const TodoApp = {
 
   cacheDOM: function(){
     this.root = document.querySelector(this.rootElement);
-    this.addButton = this.root.querySelector('.add-button');
+    //this.addButton = this.root.querySelector('.add-button');
+    this.createForm = this.root.querySelector('.create-form');
     this.taskInput = this.root.querySelector('.task-input');
     this.todoList = this.root.querySelector('.todo-list');
   },
 
   bindEvents: function(){
-    this.addButton.addEventListener('click', () => this.addTodo());
+    //this.addButton.addEventListener('click', () => this.addTodo());
+    this.createForm.addEventListener('submit', (event) => this.addTodo(event));
   },
-addTodo: function(){
+addTodo: function(event){
+  event.preventDefault();
   //grab the task input value, validate that task value is actually something, then build to do object with that value, then add that todo to the todos array, render, clear input
   const taskValue = this.taskInput.value;
   if(!taskValue){
